@@ -1,0 +1,104 @@
+--- !ruby/object:Gem::Specification 
+name: be9-acl9
+version: !ruby/object:Gem::Version 
+  version: 0.9.1
+platform: ruby
+authors: 
+- Oleg Dashevskii
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2009-01-03 00:00:00 +06:00
+default_executable: 
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: rspec
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: 1.1.11
+    version: 
+- !ruby/object:Gem::Dependency 
+  name: rspec-rails
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: 1.1.11
+    version: 
+description: Yet another role-based authorization system for Rails with a nice DSL for access control lists.
+email: olegdashevskii@gmail.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- lib/acl9/config.rb
+- lib/acl9/model_extensions/subject.rb
+- lib/acl9/model_extensions/object.rb
+- lib/acl9/controller_extensions.rb
+- lib/acl9/controller_extensions/filter_producer.rb
+- lib/acl9/version.rb
+- lib/acl9/model_extensions.rb
+- lib/acl9.rb
+- README.textile
+files: 
+- lib/acl9/config.rb
+- lib/acl9/model_extensions/subject.rb
+- lib/acl9/model_extensions/object.rb
+- lib/acl9/controller_extensions.rb
+- lib/acl9/controller_extensions/filter_producer.rb
+- lib/acl9/version.rb
+- lib/acl9/model_extensions.rb
+- lib/acl9.rb
+- spec/db/schema.rb
+- spec/filter_producer_spec.rb
+- spec/spec_helper.rb
+- spec/models.rb
+- spec/access_control_spec.rb
+- spec/roles_spec.rb
+- Manifest
+- MIT-LICENSE
+- Rakefile
+- README.textile
+- init.rb
+- acl9.gemspec
+has_rdoc: true
+homepage: http://github.com/be9/acl9
+post_install_message: 
+rdoc_options: 
+- --line-numbers
+- --inline-source
+- --title
+- Acl9
+- --main
+- README.textile
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "1.2"
+  version: 
+requirements: []
+
+rubyforge_project: acl9
+rubygems_version: 1.3.1
+signing_key: 
+specification_version: 2
+summary: Yet another role-based authorization system for Rails with a nice DSL for access control lists.
+test_files: []
+
