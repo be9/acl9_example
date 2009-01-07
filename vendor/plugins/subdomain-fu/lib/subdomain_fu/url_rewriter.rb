@@ -28,6 +28,7 @@ module ActionController
   end
   
   # hack for http://www.portallabs.com/blog/?p=8
+=begin
   module Routing
     module Optimisation
       class PositionalArgumentsWithAdditionalParams
@@ -42,4 +43,5 @@ module ActionController
       end
     end
   end
+=end
 end
