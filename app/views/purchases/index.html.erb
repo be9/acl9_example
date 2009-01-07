@@ -1,0 +1,24 @@
+<h1>Listing purchases</h1>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Amount</th>
+    <th>Total price</th>
+  </tr>
+
+<% for purchase in @purchases %>
+  <tr>
+    <td><%=h purchase.product_id %></td>
+    <td><%=h purchase.amount %></td>
+    <td><%=h purchase.total_price %></td>
+    <td><%= link_to 'Show', purchase %></td>
+    <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
+    <td><%= link_to 'Destroy', purchase, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New purchase', new_purchase_path %>

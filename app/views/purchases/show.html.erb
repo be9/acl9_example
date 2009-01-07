@@ -1,0 +1,18 @@
+<p>
+  <b>Product:</b>
+  <%=h @purchase.product_id %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%=h @purchase.amount %>
+</p>
+
+<p>
+  <b>Total price:</b>
+  <%=h @purchase.total_price %>
+</p>
+
+
+<%= link_to 'Edit', edit_purchase_path(@purchase) %> |
+<%= link_to 'Back', purchases_path %>
