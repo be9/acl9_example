@@ -7,3 +7,4 @@
 <%= form.label :password_confirmation %><br />
 <%= form.password_field :password_confirmation %><br />
 <br />
+Role: <%= collection_select :user, :role, @allowed_roles, :to_s, :to_s  %>

@@ -11,7 +11,8 @@ task :add_admin => :environment do
   u.password_confirmation = pass
   
   begin
-    u.has_role! 'admin_0'
+    u.save!
+    u.has_role! :admin_0
     puts "User '#{u.login}' created successfully!"
   rescue 
     puts "There were problems with creating a user:"

@@ -1,4 +1,9 @@
 class PurchasesController < ApplicationController
+  access_control do
+    allow :admin_0, :admin_1
+    allow :admin_2, :except => :destroy
+  end
+
   # GET /purchases
   # GET /purchases.xml
   def index

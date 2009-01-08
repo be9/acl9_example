@@ -1,4 +1,22 @@
 class ProductsController < ApplicationController
+  access_control do
+    allow :partner_0, :admin_0
+
+    actions :index, :show do 
+      allow all 
+    end
+
+    actions :new, :edit, :create, :update do
+      allow :partner_2, :partner_1
+      allow :admin_2, :admin_1
+    end
+
+    actions :destroy do
+      allow :partner_1
+      allow :admin_1
+    end
+  end
+
   # GET /products
   # GET /products.xml
   def index
