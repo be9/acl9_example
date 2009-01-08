@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090107042309) do
+ActiveRecord::Schema.define(:version => 20090108145304) do
 
   create_table "products", :force => true do |t|
     t.string   "title"
@@ -26,6 +26,21 @@ ActiveRecord::Schema.define(:version => 20090107042309) do
     t.datetime "updated_at"
   end
 
+  create_table "roles", :force => true do |t|
+    t.string   "name",              :limit => 40
+    t.string   "authorizable_type", :limit => 40
+    t.integer  "authorizable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "login"
     t.string   "crypted_password"
@@ -37,7 +52,6 @@ ActiveRecord::Schema.define(:version => 20090107042309) do
     t.datetime "current_login_at"
     t.string   "last_login_ip"
     t.string   "current_login_ip"
-    t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
