@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_filter :require_user
-  before_filter :set_allowed_roles, :only => [:new, :create, :edit, :update]
+  before_filter :set_allowed_roles
   before_filter :load_user, :except => [:index, :new, :create]
+  before_filter :allow_to_edit?, :only => [:edit, :update, :destroy]
   before_filter :get_role, :only => [:create, :update]
 
   access_control do
@@ -72,5 +73,12 @@ class UsersController < ApplicationController
 
   def get_role
     @role = params[:user].delete('role')
+  end
+
+  def allow_to_edit?
+    unless @allowed_roles.include?(@user.role)
+      flash[:notice] = "You cannot edit this user!"
+      redirect_to users_path
+    end
   end
 end
