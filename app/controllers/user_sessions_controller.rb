@@ -10,7 +10,17 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Login successful!"
-      redirect_back_or_default root_url
+
+      u = @user_session.user
+      subdomain = if u.admin?
+                    'admin'
+                  elsif u.partner?
+                    'partner'
+                  else 
+                    nil
+                  end
+      
+      redirect_to root_url(:subdomain => subdomain)
     else
       render :action => :new
     end
@@ -19,6 +29,6 @@ class UserSessionsController < ApplicationController
   def destroy
     current_user_session.destroy
     flash[:notice] = "Logout successful!"
-    redirect_back_or_default new_user_session_url
+    redirect_back_or_default new_user_session_url(:subdomain => nil)
   end
 end

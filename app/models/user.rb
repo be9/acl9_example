@@ -7,4 +7,12 @@ class User < ActiveRecord::Base
   def role
     ROLES.detect { |role| self.has_role?(role) }
   end
+
+  def admin?
+    role =~ /admin/
+  end
+
+  def partner?
+    role =~ /partner/
+  end
 end

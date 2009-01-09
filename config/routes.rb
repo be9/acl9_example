@@ -1,9 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :purchases
   map.resources :products
+  map.resources :purchases, :conditions => { :subdomain => 'admin' }
+  map.resources :users, :conditions => { :subdomain => /admin|partner/ }
 
   map.resource :account, :controller => "users"
-  map.resources :users
   map.resource :user_session
 
   map.login '/login',  :controller => "user_sessions", :action => "new"
