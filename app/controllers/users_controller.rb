@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   before_filter :require_user
   before_filter :set_allowed_roles
-  before_filter :load_user, :except => [:index, :new, :create]
-  before_filter :allow_to_edit?, :only => [:edit, :update, :destroy]
-  before_filter :get_role, :only => [:create, :update]
+  before_filter :load_user,      :except => [:index, :new, :create]
+  before_filter :allow_to_edit?, :only =>   [:edit, :update, :destroy]
+  before_filter :get_role,       :only =>   [:create, :update]
 
   access_control do
     allow :partner_0
@@ -57,9 +57,13 @@ class UsersController < ApplicationController
   end
 
   def check_and_set_role
+    return true if @user == current_user
+
     if @allowed_roles.include?(@role)
       @user.has_no_roles!
       @user.has_role!(@role)
+
+      true
     else
       @user.errors.add(:base, 'You cannot assign this role to this user')
 
@@ -76,7 +80,7 @@ class UsersController < ApplicationController
   end
 
   def allow_to_edit?
-    unless @allowed_roles.include?(@user.role)
+    unless @user == current_user || @allowed_roles.include?(@user.role)
       flash[:notice] = "You cannot edit this user!"
       redirect_to users_path
     end
