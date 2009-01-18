@@ -9,10 +9,10 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    role =~ /admin/
+    !!(role =~ /admin/)
   end
 
   def partner?
-    role =~ /partner/
+    !!(role =~ /partner/)
   end
 end
