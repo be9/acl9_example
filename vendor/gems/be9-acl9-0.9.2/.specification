@@ -1,7 +1,7 @@
 --- !ruby/object:Gem::Specification 
 name: be9-acl9
 version: !ruby/object:Gem::Version 
-  version: 0.9.1
+  version: 0.9.2
 platform: ruby
 authors: 
 - Oleg Dashevskii
@@ -9,7 +9,7 @@ autorequire:
 bindir: bin
 cert_chain: []
 
-date: 2009-01-03 00:00:00 +06:00
+date: 2009-01-14 00:00:00 +06:00
 default_executable: 
 dependencies: 
 - !ruby/object:Gem::Dependency 
@@ -39,36 +39,40 @@ executables: []
 extensions: []
 
 extra_rdoc_files: 
-- lib/acl9/config.rb
+- lib/acl9/model_extensions.rb
+- lib/acl9/version.rb
 - lib/acl9/model_extensions/subject.rb
 - lib/acl9/model_extensions/object.rb
+- lib/acl9/controller_extensions/generators.rb
+- lib/acl9/controller_extensions/dsl_base.rb
+- lib/acl9/config.rb
 - lib/acl9/controller_extensions.rb
-- lib/acl9/controller_extensions/filter_producer.rb
-- lib/acl9/version.rb
-- lib/acl9/model_extensions.rb
 - lib/acl9.rb
 - README.textile
+- CHANGELOG.textile
 files: 
-- lib/acl9/config.rb
+- init.rb
+- Manifest
+- lib/acl9/model_extensions.rb
+- lib/acl9/version.rb
 - lib/acl9/model_extensions/subject.rb
 - lib/acl9/model_extensions/object.rb
+- lib/acl9/controller_extensions/generators.rb
+- lib/acl9/controller_extensions/dsl_base.rb
+- lib/acl9/config.rb
 - lib/acl9/controller_extensions.rb
-- lib/acl9/controller_extensions/filter_producer.rb
-- lib/acl9/version.rb
-- lib/acl9/model_extensions.rb
 - lib/acl9.rb
-- spec/db/schema.rb
-- spec/filter_producer_spec.rb
-- spec/spec_helper.rb
-- spec/models.rb
-- spec/access_control_spec.rb
-- spec/roles_spec.rb
-- Manifest
+- README.textile
+- acl9.gemspec
+- CHANGELOG.textile
 - MIT-LICENSE
 - Rakefile
-- README.textile
-- init.rb
-- acl9.gemspec
+- spec/db/schema.rb
+- spec/dsl_base_spec.rb
+- spec/spec_helper.rb
+- spec/access_control_spec.rb
+- spec/roles_spec.rb
+- spec/models.rb
 has_rdoc: true
 homepage: http://github.com/be9/acl9
 post_install_message: 
