@@ -14,6 +14,8 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
   helper_method :current_user_session, :current_user
 
+  rescue_from 'Acl9::AccessDenied', :with => :access_denied
+
   protected
   
   def current_user_session
@@ -51,5 +53,9 @@ class ApplicationController < ActionController::Base
   def redirect_back_or_default(default)
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
+  end
+
+  def access_denied
+    render :file => File.join(RAILS_ROOT, 'public', '403.html'), :status => 403
   end
 end
