@@ -3,12 +3,18 @@
 <table>
   <tr>
     <th>Login</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Email</th>
     <th>Role</th>
   </tr>
 
 <% for user in @users %>
   <tr>
     <td><%=h user.login %></td>
+    <td><%=h user.first_name %></td>
+    <td><%=h user.last_name %></td>
+    <td><%=h user.email %></td>
     <td><%=h user.role %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
