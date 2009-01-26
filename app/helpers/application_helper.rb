@@ -9,11 +9,11 @@ module ApplicationHelper
   def menu_items
     available = [
       ["Products",  products_url],
-      ["Purchases", purchases_url, :admin?],
+      ["Purchases", admin_purchases_url, :admin?],
       ["Users",     users_url, 'admin', 'partner'],
       ["Ones",      admin_ones_url, :admin?],
-      ["Twos",      twos_url, :partner?],
-      ["Threes",    threes_url, :contractor?],
+      ["Twos",      partner_twos_url, :partner?],
+      ["Threes",    contractor_threes_url, :contractor?],
       ["Fours",     fours_url, :admin?, :partner?],
       ["Fives",     fives_url, :admin?, :contractor?],
       ["Sixes",     sixes_url, :partner?, :contractor?],

@@ -6,13 +6,13 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   # partner's
-  map.with_options :conditions => { :subdomain => 'partner' } do |m|
-    m.resources :twos, :controller => "partner/twos"
+  map.namespace :partner, :path_prefix => '', :conditions => { :subdomain => 'partner' } do |partner|
+    partner.resources :twos
   end
   
   # contractor's
-  map.with_options :conditions => { :subdomain => 'contractor' } do |m|
-    m.resources :threes, :controller => "contractor/threes"
+  map.namespace :contractor, :path_prefix => '', :conditions => { :subdomain => 'contractor' } do |contractor|
+    contractor.resources :threes
   end
 
   # admin's or partner's
