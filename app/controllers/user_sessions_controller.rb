@@ -16,6 +16,8 @@ class UserSessionsController < ApplicationController
                     'admin'
                   elsif u.partner?
                     'partner'
+                  elsif u.contractor?
+                    'contractor'
                   else 
                     nil
                   end

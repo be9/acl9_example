@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
   def partner?
     !!(role =~ /partner/)
   end
+  
+  def contractor?
+    has_role? :contractor
+  end
 
   def deliver_password_reset_instructions!
     reset_perishable_token!
