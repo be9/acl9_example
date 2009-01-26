@@ -7,8 +7,8 @@ module Common
     before_filter :get_role,       :only =>   [:create, :update]
 
     access_control do
-      allow :partner_0
-      allow :admin_0
+      allow :partner
+      allow :admin
     end
 
     def index
@@ -49,9 +49,9 @@ module Common
     private
 
     def set_allowed_roles
-      @allowed_roles = if current_user.has_role?(:admin_0)
+      @allowed_roles = if current_user.has_role?(:admin)
                         User::ROLES
-                      elsif current_user.has_role?(:partner_0)
+                      elsif current_user.has_role?(:partner)
                         %w(partner_1 partner_2)
                       else
                         # WTF

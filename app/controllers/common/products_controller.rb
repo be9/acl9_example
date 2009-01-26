@@ -1,7 +1,7 @@
 module Common
   class ProductsController < ApplicationController
     access_control do
-      allow :partner_0, :admin_0
+      allow :partner, :admin
 
       actions :index, :show do 
         allow all 
