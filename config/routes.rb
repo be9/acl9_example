@@ -1,11 +1,40 @@
 ActionController::Routing::Routes.draw do |map|
+  # admin's
+  map.with_options :conditions => { :subdomain => 'admin' } do |m|
+    m.resources :purchases, :controller => "admin/purchases"
+    m.resources :ones, :controller => "admin/ones"
+  end
+
+  # partner's
+  map.with_options :conditions => { :subdomain => 'partner' } do |m|
+    m.resources :twos, :controller => "partner/twos"
+  end
+  
+  # contractor's
+  map.with_options :conditions => { :subdomain => 'contractor' } do |m|
+    m.resources :threes, :controller => "contractor/threes"
+  end
+
+  # admin's or partner's
+  map.with_options :conditions => { :subdomain => /admin|partner/ } do |m|
+    map.resources :users, :controller => "common/users"
+    map.resources :fours, :controller => "common/fours"
+  end
+
+  # admin's or contractor's
+  map.with_options :conditions => { :subdomain => /admin|contractor/ } do |m|
+    map.resources :fives, :controller => "common/fives"
+  end
+  
+  # partner's or contractor's
+  map.with_options :conditions => { :subdomain => /partner|contractor/ } do |m|
+    map.resources :sixes, :controller => "common/sixes"
+  end
+
   map.resources :products, :controller => "common/products"
-  map.resources :purchases, :controller => "admin/purchases", :conditions => { :subdomain => 'admin' }
-  map.resources :users, :controller => "common/users", :conditions => { :subdomain => /admin|partner/ }
 
   map.resource :profile, :only => [:edit, :show, :update]
   map.resource :user_session
-
   map.resources :password_resets
 
   map.login  '/login',  :controller => "user_sessions", :action => "new"
