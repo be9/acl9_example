@@ -21,6 +21,8 @@ module Common
 
     def create
       @user = User.new(params[:user])
+      @user.creator = current_user
+
       if check_and_set_role && @user.save
         flash[:notice] = "Account registered!"
         redirect_to @user
@@ -81,7 +83,9 @@ module Common
     end
 
     def allow_to_edit?
-      unless @user == current_user || @allowed_roles.include?(@user.role)
+      return if @user == current_user
+
+      unless @allowed_roles.include?(@user.role) && @user.creator == current_user
         flash[:notice] = "You cannot edit this user!"
         redirect_to users_path
       end
