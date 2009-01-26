@@ -1,0 +1,14 @@
+<h1>Your profile</h1>
+
+<dl>
+  <dt>Login</dt>
+  <dd><%= h @user.login %></dd>
+  
+  <dt>Name</dt>
+  <dd><%= h "#{@user.first_name} #{@user.last_name}" %></dd>
+  
+  <dt>Email</dt>
+  <dd><%= h @user.email %></dd>
+</dl>
+
+<p><%= link_to "Edit", edit_profile_path %></p>

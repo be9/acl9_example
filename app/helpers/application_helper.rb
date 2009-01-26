@@ -18,6 +18,8 @@ module ApplicationHelper
         items << ["Users",     users_url]      
       end
 
+      items << ["Profile", profile_url]
+
       items << ["Logout", logout_url]
     else
       items << ["Login", login_url]
