@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :products
+  map.resources :products, :controller => "common/products"
   map.resources :purchases, :conditions => { :subdomain => 'admin' }
   map.resources :users, :conditions => { :subdomain => /admin|partner/ }
 
@@ -9,7 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login  '/login',  :controller => "user_sessions", :action => "new"
   map.logout '/logout', :controller => "user_sessions", :action => "destroy"
 
-  map.root :controller => 'products', :action => 'index'
+  map.root :controller => 'common/products', :action => 'index'
 
   # The priority is based upon order of creation: first created -> highest priority.
 
