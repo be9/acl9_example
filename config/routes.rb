@@ -1,8 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   # admin's
-  map.with_options :conditions => { :subdomain => 'admin' } do |m|
-    m.resources :purchases, :controller => "admin/purchases"
-    m.resources :ones, :controller => "admin/ones"
+  map.namespace :admin, :path_prefix => '', :conditions => { :subdomain => 'admin' } do |admin|
+    admin.resources :ones
+    admin.resources :purchases
   end
 
   # partner's

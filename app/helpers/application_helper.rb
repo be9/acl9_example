@@ -11,7 +11,7 @@ module ApplicationHelper
       ["Products",  products_url],
       ["Purchases", purchases_url, :admin?],
       ["Users",     users_url, 'admin', 'partner'],
-      ["Ones",      ones_url, :admin?],
+      ["Ones",      admin_ones_url, :admin?],
       ["Twos",      twos_url, :partner?],
       ["Threes",    threes_url, :contractor?],
       ["Fours",     fours_url, :admin?, :partner?],

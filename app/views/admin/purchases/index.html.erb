@@ -13,7 +13,7 @@
     <td><%=h purchase.amount %></td>
     <td><%=h purchase.total_price %></td>
     <td><%= link_to 'Show', purchase %></td>
-    <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
+    <td><%= link_to 'Edit', edit_admin_purchase_url(purchase) %></td>
     <td><%= link_to 'Destroy', purchase, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
@@ -21,4 +21,4 @@
 
 <br />
 
-<%= link_to 'New purchase', new_purchase_path %>
+<%= link_to 'New purchase', new_admin_purchase_url %>
